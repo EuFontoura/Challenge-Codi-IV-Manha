@@ -1,0 +1,40 @@
+// Olá, bem vindo ao código da parte lógica de nosso projeto!
+
+// Este é o rascunho inicial para o código do app de finanças da equipe da Manhã do CODI Challenge 2024.
+// A ideia inicial é obter classes para instanciar cada registro de despesa como um objeto com as atribuições definidas pelo usuário.
+// Também será criada uma classe para Categorias, permitindo que seja implementado futuramente uma forma de adicionar categorias.
+
+
+// Declarar as variáveis de entry seguindo o exemplo apresentado no Figma como protótipo:
+
+let valor
+let data
+let categoria
+let descricao
+
+// Declarar uma classe para os objetos de cada despesa.
+
+class Despesa {
+    constructor(valor, data, descricao) {
+        this.valor = valor
+        this.data = data
+        this.descricao = descricao
+    }
+}
+
+// Declarar uma classe para separar as despesas em categorias.
+// A classe possui [] que funciona como um container vazio que irá receber as instâncias de despesa.
+
+class Categoria {
+    constructor(tipo) {
+        this.tipo = tipo
+        this.despesas = []
+    }
+}
+
+// Declaração das categorias pré definidas seguindo o exemplo do protótipo do Figma.
+
+let moradia = new Categoria("Moradia")
+let alimentacao = new Categoria("Alimentação")
+let saudebeleza = new Categoria("Saúde & Beleza")
+let vestuario = new Categoria("Vestuário")
