@@ -1,0 +1,13 @@
+.navbar img{
+    width: 250px;
+    height: 50px;
+
+}
+
+.content{
+    display: none;
+}
+
+.content.show{
+    display: block;
+}
