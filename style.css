@@ -12,3 +12,8 @@
 .content.show{
     display: block;
 }
+
+/* para esconder, por enquanto, a caixa de "Registrar valor" */
+.form {
+    display: none;
+}

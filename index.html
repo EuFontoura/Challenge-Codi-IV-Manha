@@ -142,6 +142,63 @@
 
     </div>
 
+
+
+
+    <!-- um form para adicionar novos gastos -->
+    <div class="form">
+
+        <div class="form-title">
+
+            <h2>Registrar valor</h2>
+
+            <button>
+                <div class="icon">
+                    <i class="material-icons">close</i>
+                </div>
+            </button>
+
+            <p>Digite o valor e selecione a categoria adequada</p>
+
+        </div>
+
+        <form>
+            <div>
+                <label for="money">Valor:</label>
+                <input class="input" type="text" placeholder="R$ 0,00" id="money" name="money" required oninput="formatarDinheiro(this)">
+            </div>
+
+            <div>
+                <label for="date">Data:</label>
+                <input class="input" type="date" id="date" name="date" required>
+            </div> 
+
+            <div>
+                <label for="category">Categoria:</label>
+                <select class="input" id="category" name="category" required>
+                    <option selected disabled value="">Selecione uma categoria:</option>
+                    <option value="moradia">Moradia</option>
+                    <option value="alimentacao">Alimentação</option>
+                    <option value="saude">Saúde e Beleza</option>
+                    <option value="vestuario">Vestuário</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+        
+            <div>
+                <label for="description">Descrição:</label>
+                <textarea class="input" id="description" name="description" placeholder="(Opcional)"></textarea>
+            </div>
+
+            <div>
+                <button id="cancel">Cancelar</button>
+                <input type="submit" value="Inserir valor" id="submit"/>
+            </div>
+
+            </form>
+
+        </div>
+
     <script src="script.js"></script>
 </body>
 </html>
