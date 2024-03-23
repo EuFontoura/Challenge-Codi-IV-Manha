@@ -53,19 +53,30 @@
     border-radius: 8px;
 }
 
-
-.div-buttons {
-    background-color: aqua;
+.navbar button:hover{
+    background-color: #E8E8E8;
+    color: #3A9564;
+    border: 1px solid #3A9564;
+    transition: all 250ms;
+    cursor: pointer;
 }
 
-.div-contents {
-    background-color: brown;
+.divButtons {
+    background-color: transparent;
+    width: 100%;
+}
+
+.divContents {
+    background-color: #343434;
+    height: 80%;
+    border-top-right-radius: 10px;
+    box-shadow: 10px 20px 5px rgb(153, 153, 153);
 }
 
 
-.capsula{
-    background-color: yellow;
-    width: 1000px;
+.capsule{
+    /* background-color: yellow; */
+    width: 940px;
     height: 100%;
 }
 .container {
@@ -83,14 +94,114 @@
     display: block;
 }
 
-.div-contents .left-right {
-    background-color: blue;
+.leftRight {
+    background-color: #343434;
     display: flex;
     justify-content: space-between;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 10px 10px 5px rgb(153, 153, 153);
 }
 
 .Gastos {
-    background-color: red;
+    background-color:#3A9564;
+    height: 40px;
     display: flex;
     flex-direction:initial;
+    width: 170px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.Gastos i{
+    margin: 7px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.Gastos h1{
+    font-weight: 500;
+    margin-top: 3px;
+    color: white;
+    font-size: 26px;
+}
+
+.tabBtn{
+    font-family: 'Embed code', 'Poppins', Arial, sans-serif;
+    background-color: #E8E8E8;
+    left:0;
+    width: 130px;
+    height: 40px;
+    border: none;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    color: #343434;
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid #B9B9B9;
+}
+
+.tabBtn:hover{
+    transform: translate(5px, 0);
+    cursor: pointer;
+    transition: all 250ms;
+}
+
+#todos{
+    width: 100px;
+    border-right: 10px solid black;
+    border-radius: 2px solid #B9B9B9;
+}
+
+#moradia{
+    width: 110px;
+    border-right: 10px solid red;
+    border-left: none;
+}
+
+#alimentacao{
+    width: 115px;
+    border-right: 10px solid yellow;
+    border-left: none;
+}
+
+#saude-beleza{
+    width: 140px;
+    border-right: 10px solid cyan;
+    border-left: none;
+}
+
+#vestuario{
+    width: 110px;
+    border-right: 10px solid magenta;
+    border-left: none;
+}
+
+#outros{
+    width: 100px;
+    border-right: 10px solid grey;
+    border-left: none;
+}
+
+.leftRight button{
+    background: none;
+    border: none;
+    padding: 0 12px 5px 12px;
+    font-weight: bold;
+    color: #989898;
+}
+
+.leftRight button:hover{
+    cursor: pointer;
+}
+
+.backBtn{
+    z-index: -1;
+    position:fixed;
+    height: 40px;
+    width: 50%;
+    background-color: #E8E8E8;
+    border: 2px solid #B9B9B9;
+    border-left: none;
 }

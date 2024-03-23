@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mina:wght@400;700&display=swap" rel="stylesheet">
     <title>CodiFinance</title>
 </head>
 <body>
@@ -35,39 +38,40 @@
 
 
         <!-- Classe Capsula criada para o redimencionamento da posição -->
-        <div class="capsula">
+        <div class="capsule">
             <div class="Gastos">
                 <div class="icon">
                     <i class="material-icons">attach_money</i>
-                    <span>Gastos</span>
                 </div>
+                <h1>Gastos</h1>
             </div>
 
             <!-- Classe dos botões-->
-            <div class="div-buttons">
+            <div class="divButtons">
+                
+                <div class="backBtn"></div>
 
-
-                <button class="tab-btn" content-id="todos">
+                <button class="tabBtn" id="todos" >
                     Todos
                 </button>
 
-                <button class="tab-btn" content-id="moradia">
+                <button class="tabBtn" id="moradia">
                     Moradia
                 </button>
 
-                <button class="tab-btn" content-id="alimentacao">
+                <button class="tabBtn" id="alimentacao">
                     Alimentação
                 </button>
 
-                <button class="tab-btn" content-id="saude-beleza">
+                <button class="tabBtn" id="saude-beleza">
                     Saúde e Beleza
                 </button>
 
-                <button class="tab-btn" content-id="vestuario">
+                <button class="tabBtn" id="vestuario">
                     Vestuário
                 </button>
 
-                <button class="tab-btn" content-id="outros">
+                <button class="tabBtn" id="outros">
                     Outros
                 </button>
 
@@ -76,84 +80,24 @@
             </div>
 
             <!-- Classe que contem as informações dos gastos separados em catgorias -->
-            <div class="div-contents">
-
-
-                <div class="content show" id="todos">
-                    <div class="div-somas">
-                        <h1>Soma dos Valores</h1>
-                        <h2 id="soma-todos">R$ 0.00</h2>
-                    </div>
-                    <div class="info">
-                        <h2>Aqui estará o conteudo da aba Todos</h2> <!-- O h2 Colocado nesta div eh temporario, depois colocaremos o conteudo certo-->
-                    </div>
-                </div>
-
-                <div class="content" id="moradia">
-                    <div class="div-somas" id="soma-moradia">
-                        <h1>Soma dos Valores</h1>
-                        <h2 id="moradia">R$ 0.00</h2>
-                    </div>
-                    <div class="info">
-                        <h2>Aqui estará o conteudo da aba Moradia</h2> <!-- O h2 Colocado nesta div eh temporario, depois colocaremos o conteudo certo-->
-                    </div>
-                </div>
-
-                <div class="content" id="alimentacao">
-                    <div class="div-somas" id="soma-alimentacao">
-                        <h1>Soma dos Valores</h1>
-                        <h2 id="soma-alimentacao">R$ 0.00</h2>
-                    </div>
-                    <div class="info">
-                        <h2>Aqui estará o conteudo da aba Alimentação</h2> <!-- O h2 Colocado nesta div eh temporario, depois colocaremos o conteudo certo-->
-                    </div>
-                </div>
-
-                <div class="content" id="saude-beleza">
-                    <div class="div-somas" >
-                        <h1>Soma dos Valores</h1>
-                        <h2 id="soma-saude-beleza">R$ 0.00</h2>
-                    </div>
-                    <div class="info">
-                        <h2>Aqui estará o conteudo da aba Saúde e Beleza</h2> <!-- O h2 Colocado nesta div eh temporario, depois colocaremos o conteudo certo-->
-                    </div>
-                </div>
-
-                <div class="content" id="vestuario">
-                    <div class="div-somas">
-                        <h1>Soma dos Valores</h1>
-                        <h2 id="soma-vestuario">R$ 0.00</h2>
-                    </div>
-                    <div class="info">
-                        <h2>Aqui estará o conteudo da aba Vestuário</h2> <!-- O h2 Colocado nesta div eh temporario, depois colocaremos o conteudo certo-->
-                    </div>
-                </div>
-
-                <div class="content" id="outros">
-                    <div class="div-somas">
-                        <h1>Soma dos Valores</h1>
-                        <h2 id="soma-outros">R$ 0.00</h2>
-                    </div>
-                    <div class="info">
-                        <h2>Aqui estará o conteudo da aba Outros</h2> <!-- O h2 Colocado nesta div eh temporario, depois colocaremos o conteudo certo-->
-                    </div>
-                </div>
-
-                <div class="left-right">
-                    <button class="left" id="left">
-                        <div class="icon">
-                            <i class="material-icons">chevron_left</i>
-                        </div>
-                    </button>
-                    <button class="right" id="right"> 
-                        <div class="icon">
-                            <i class="material-icons">chevron_right</i>
-                        </div> 
-                    </button>
-                </div>
+            <div class="divContents">
 
 
             </div>
+
+            <div class="leftRight">
+                <button class="left" id="left">
+                    <div class="icon">
+                        <i class="material-icons">chevron_left</i>
+                    </div>
+                </button>
+                <button class="right" id="right"> 
+                    <div class="icon">
+                        <i class="material-icons">chevron_right</i>
+                    </div> 
+                </button>
+            </div>
+
         </div>
 
     </div>

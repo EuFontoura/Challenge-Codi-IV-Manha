@@ -68,3 +68,4 @@ const tabs = document.querySelectorAll('.tab-btn')
 
 // Adicionamos um evento de click para cada botão de tab e chamamos uma funcao para manipular o conteudo
 tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)))
+
