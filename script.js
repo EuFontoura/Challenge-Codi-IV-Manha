@@ -69,3 +69,28 @@ const tabs = document.querySelectorAll('.tab-btn')
 // Adicionamos um evento de click para cada botão de tab e chamamos uma funcao para manipular o conteudo
 tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)))
 
+// Função para formatar o valor inserido do form para reais
+function formatarDinheiro(input) {
+    let num = input.value.replace(/\D/g, '');
+    input.value = (num / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+// Manipulando o pop-up de registro de despesas
+document.getElementById("register-button").addEventListener("click", function() {
+    document.querySelector(".form").style.display = "flex";
+})
+
+document.querySelector(".close").addEventListener("click", function() {
+    document.querySelector(".form").style.display = "none";
+})
+
+document.getElementById("cancel").addEventListener("click", function() {
+    document.querySelector(".form").style.display = "none";
+})
+
+const form = document.getElementById('formInfo');
+const closeButton = document.getElementById('close');
+
+closeButton.addEventListener('click', function() {
+    form.reset();
+})
