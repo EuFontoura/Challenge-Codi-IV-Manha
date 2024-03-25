@@ -74,3 +74,23 @@ function formatarDinheiro(input) {
     let num = input.value.replace(/\D/g, '');
     input.value = (num / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
+
+// Manipulando o pop-up de registro de despesas
+document.getElementById("register-button").addEventListener("click", function() {
+    document.querySelector(".form").style.display = "flex";
+})
+
+document.querySelector(".close").addEventListener("click", function() {
+    document.querySelector(".form").style.display = "none";
+})
+
+document.getElementById("cancel").addEventListener("click", function() {
+    document.querySelector(".form").style.display = "none";
+})
+
+const form = document.getElementById('formInfo');
+const closeButton = document.getElementById('close');
+
+closeButton.addEventListener('click', function() {
+    form.reset();
+})
