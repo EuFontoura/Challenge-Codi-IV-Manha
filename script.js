@@ -73,15 +73,12 @@ function add_btn_categoria(categorias) {
     const divContents = document.querySelector('.divContents')
 
     if (divButtons && divContents) {
-
-        const divConfig = document.createElement('div')
-        divButtons.parentNode.insertBefore(divConfig, divButtons)
         
         divButtons.innerHTML = ''
 
-        // corrigit o backBtn para dentro da divButtons
-
-        divConfig.classList.add('backBtn')
+        const divBack = document.createElement('div')
+        divBack.classList.add('backBtn')
+        divButtons.appendChild(divBack)
 
         categorias.forEach(categoria => {
             const botao = document.createElement('button')
@@ -135,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             categoriaRestaurada.despesas = categoria.despesas.map(despesa => new Despesa(despesa.valor, despesa.moeda, despesa.data, despesa.descricao, despesa.categoria))
             return categoriaRestaurada
         })
-        
+
     } else {
 
         categorias = criar_categoria(nomesCategorias)
@@ -195,38 +192,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('left').addEventListener('click', function() {
         console.log("Botão clicado: left")
-        if (currentIndex > 0) {
-            currentIndex--
-        } else {
-            currentIndex = categorias.length - 1
-        }
+ 
+        currentIndex > 0 ? currentIndex--: currentIndex = categorias.length - 1
         console.log("Índice atual:", currentIndex)
     
         const categoriaAtual = categorias[currentIndex].tipo
         const botaoCategoria = document.getElementById(formatar_texto(categoriaAtual))
-        if (botaoCategoria) {
-            botaoCategoria.click()
-        } else {
-            console.log("Botão de categoria correspondente não encontrado.")
-        }
+        botaoCategoria ? botaoCategoria.click() : console.log("Botão de categoria correspondente não encontrado.")
+        
     })
     
     document.getElementById('right').addEventListener('click', function() {
         console.log("Botão clicado: right")
-        if (currentIndex < categorias.length - 1) {
-            currentIndex++
-        } else {
-            currentIndex = 0
-        }
+
+        currentIndex < categorias.length - 1 ? currentIndex++ : currentIndex = 0
         console.log("Índice atual:", currentIndex)
     
         const categoriaAtual = categorias[currentIndex].tipo
         const botaoCategoria = document.getElementById(formatar_texto(categoriaAtual))
-        if (botaoCategoria) {
-            botaoCategoria.click()
-        } else {
-            console.log("Botão de categoria correspondente não encontrado.")
-        }
+        botaoCategoria ? botaoCategoria.click() : console.log("Botão de categoria correspondente não encontrado.")
     })
 
 })
