@@ -141,7 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
     add_btn_categoria(categorias)
     
     document.getElementById("register-button").addEventListener("click", function() {
-        document.querySelector(".form").style.display = "flex"
+        // document.querySelector(".form").style.display = "flex"
+        document.querySelector(".form").style = "display: flex"
+        document.querySelector("*").style.overflow = "hidden"
     })
 
     const form = document.getElementById('formInfo')
@@ -149,10 +151,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector(".close").addEventListener("click", function() {
         document.querySelector(".form").style.display = "none"
+        document.querySelector("*").style.overflow = "visible"
     })
 
     document.getElementById("cancel").addEventListener("click", function() {
         document.querySelector(".form").style.display = "none"
+        document.querySelector("*").style.overflow = "visible"
     })
 
     closeButton.addEventListener('click', function() {
