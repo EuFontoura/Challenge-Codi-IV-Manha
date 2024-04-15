@@ -192,6 +192,26 @@ function criar_div_despesa(despesa, categoria) {
     colorDiv.classList.add('color')
     colorDiv.id = "categoria"
 
+    switch (despesa.categoria) {
+        case 'moradia':
+            colorDiv.style.backgroundColor = 'red'
+            break
+        case 'alimentacao':
+            colorDiv.style.backgroundColor = 'yellow'
+            break
+        case 'saude_e_beleza':
+            colorDiv.style.backgroundColor = 'cyan'
+            break
+        case 'vestuario':
+            colorDiv.style.backgroundColor = 'magenta'
+            break
+        case 'outros':
+            colorDiv.style.backgroundColor = 'white'
+            break
+        default:
+            break
+    }
+
     const titleDateDiv = document.createElement('div')
     titleDateDiv.classList.add('titleDate')
 
