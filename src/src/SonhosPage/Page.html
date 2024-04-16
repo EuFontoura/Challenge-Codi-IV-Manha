@@ -30,64 +30,83 @@
 
     <div class="title">
         <div class="icon">
-            <i class="material-icons">arrow_back</i>
+            <a href="../index.html"><i class="material-icons">arrow_back</i></a>
         </div>
         <h1>Sonhos / Arquivados</h1>
     </div>
 
-    <div class="contents">
-        <div class="dreamList">
-            <h1>Meus Sonhos</h1>
-            <div class="dream">
-                <h3>Reserva</h3>
-                <i class="material-icons">delete</i>
-            </div>
-            <div class="dream">
-                <h3>Sonho Criado</h3>
-                <i class="material-icons">delete</i>
-            </div>
-            <button class="addDream" id="addDream">+</button>
-        </div>
+    <div class="contentBase">
+        <div class="contents">
+            <div class="dreamList">
+                <h1>Meus Sonhos</h1>
+                <div class="dream">
+                    <h3 id="dreamName">Reserva</h3>
+                    <i class="material-icons" id = "trash">delete</i>
+                </div>
 
-        <!-- <div class="dreamContentHide">
-            <span class="material-icons">savings</span>
-            <span class="material-icons">monetization_on</span>
-        </div> -->
+                <div class="dream">
+                    <h3 id="dreamName">Sonho Criado</h3>
+                    <i class="material-icons" id ="trash">delete</i>
+                </div>
 
-        <div class="dreamContent">
-            <div class="dreamContentTitle">
-                <h2>Reserva</h2>
+                <button class="addDream" id="addDream">+</button>
             </div>
 
-            <div class="dreamContentDescription">
-                <p>Descrição: Reserva para emergências</p>
-            </div>
+        
+
+            <div class="dreamContent">
+                <div class="dreamContentHide">
+                    <span class="material-icons" id = "coin">monetization_on</span>
+                    <span class="material-icons" id ="pig">savings</span>
+                    <h3>Bem vindo a página de sonhos!</h3>
+                    <h2>Clique em algum sonho para ver informações!</h2>
+                    <h2>Crie novos Sonhos através do botão '+'</h2>
+                </div>
+
+                <div class="dreamContentIn">
+                    <div class="dreamContentTitle">
+                        <h2 id ="dreamTitle">Reserva</h2>
+                    </div>
+
+                    <div class="dreamContentDescription">
+                        <p id="dreamDescription">Reserva para emergências</p>
+                    </div>
             
-            <div class="values">
-                <h4>Você deseja:</h4>
-                <p>R$ 50,00</p>
+                    <div class="values">
+                        <div class="inValue">
+                            <h4>Você deseja:</h4>
+                            <p id="finalValue">R$ 1000,00</p>
+                        </div>
+                
+                        <div class="inValue">
+                            <h4>Você já tem:</h4>
+                            <p id= "haveValue">R$ 25,00</p>
+                        </div>
+                
+                        <div class="inValue">
+                            <h4>Ainda faltam:</h4>
+                            <p id= "diferenceValue">R$ 975,00</p>
+                        </div>
+                    </div>
 
-                <h4>Você já tem:</h4>
-                <p>R$ 100,00</p>
+                    <div class="history">
+                        <h3>Histórico</h3>
+                        <ul>
+                            <li id = "adicionarValor">Adicionou: - R$ 50,00 - 15/04/2024</li>
+                            <li id = "sacarValor">Sacou: - R$ 25,00 - 15/04/2024</li>
+                        </ul>
+                    </div>
 
-                <h4>Ainda falta:</h4>
-                <p>R$ 50,00</p>
-            </div>
-
-            <div class="history">
-                <h3>Histórico</h3>
-                <ul>
-                    <li>Valor adicionado: R$ 50,00</li>
-                    <li>Valor retirado: R$ 25,00</li>
-                </ul>
-            </div>
-
-            <div class="dreamContentButtons">
-                <button class="addButton" id="addButton">Adicionar valor</button>
-                <button class="removeButton" id="removeButton">Retirar valor</button>
+                    <div class="dreamContentButtons">
+                        <button class="addButton" id="addButton">Adicionar valor</button>
+                        <button class="removeButton" id="removeButton">Retirar valor</button>
+                    </div>
+                </div>
+            
             </div>
         </div>
     </div>
+    
 
     <!--Form para criar um sonho-->
     <div class="createDream">
@@ -95,7 +114,7 @@
             <div class="createDreamTitle">
                     <h2>Criar sonho</h2>
                 
-                <button class="close" id="close">
+                <button class="close">
                     <div class="icon">
                         <i class="material-icons">close</i>
                     </div>
@@ -121,12 +140,12 @@
 
                 <div>
                     <label for="description">Descrição:</label>
-                    <textarea class="input" id="description" name="description" placeholder="(Opcional)"></textarea>
+                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
                 </div>
     
                 <div class="createDreamButtons">
-                    <input type="reset" id="cancel" value="Cancelar">
-                    <input type="submit" id="submit" value="Salvar"/>
+                    <input type="reset" class="cancel" value="Cancelar">
+                    <input type="submit" class="submit" value="Salvar"/>
                 </div>
     
                 </form>
@@ -140,7 +159,7 @@
             <div class="addValueTitle">
                     <h2>Adicionar valor</h2>
                 
-                <button class="close" id="close">
+                <button class="close">
                     <div class="icon">
                         <i class="material-icons">close</i>
                     </div>
@@ -161,12 +180,12 @@
 
                 <div>
                     <label for="description">Descrição:</label>
-                    <textarea class="input" id="description" name="description" placeholder="(Opcional)"></textarea>
+                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
                 </div>
     
                 <div class="addValueButtons">
-                    <input type="reset" id="cancel" value="Cancelar">
-                    <input type="submit" id="submit" value="Salvar"/>
+                    <input type="reset" class="cancel" value="Cancelar">
+                    <input type="submit" class="submit" value="Adicionar"/>
                 </div>
     
                 </form>
@@ -180,7 +199,7 @@
             <div class="removeValueTitle">
                     <h2>Retirar valor</h2>
                 
-                <button class="close" id="close">
+                <button class="close">
                     <div class="icon">
                         <i class="material-icons">close</i>
                     </div>
@@ -201,17 +220,21 @@
 
                 <div>
                     <label for="description">Descrição:</label>
-                    <textarea class="input" id="description" name="description" placeholder="(Opcional)"></textarea>
+                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
                 </div>
     
                 <div class="removeValueButtons">
-                    <input type="reset" id="cancel" value="Cancelar">
-                    <input type="submit" id="submit" value="Salvar"/>
+                    <input type="reset" class="cancel" value="Cancelar">
+                    <input type="submit" class="submit" value="Retirar"/>
                 </div>
-    
                 </form>
         </div>
+    </div>
 
+    <!--Adicionando o ícone animado no canto inferior direito da tela-->
+    <div class="file">
+        <a href="../index.html"><span class="material-icons" id="folder">folder</span></a>
+        <span class="material-icons" id="article">article</span>
     </div>
 
     <script src = "scriptPage.js"></script>

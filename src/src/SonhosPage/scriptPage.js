@@ -9,43 +9,43 @@ document.getElementById("addDream").addEventListener("click", function() {
 })
 
 const createDreamInfo = document.getElementById('createDreamInfo')
-const closeButton = document.getElementById('close')
+const closeButton = document.querySelector('.close')
 
 // Tentando colocar todos os eventos de fechar pelo botão close em um único evento
 document.querySelector(".close").addEventListener("click", function() {
 
     if (document.querySelector(".createDream").style.display === "flex") {
         document.querySelector(".createDream").style.display = "none"
-        document.querySelector("*").style.overflow = "hidden"
+        document.querySelector("*").style.overflow = "visible"
     }
 
     if (document.querySelector(".addValue").style.display === "flex") {
         document.querySelector(".addValue").style.display = "none"
-        document.querySelector("*").style.overflow = "hidden"
+        document.querySelector("*").style.overflow = "visible"
     }
 
     if (document.querySelector(".removeValue").style.display === "flex") {
         document.querySelector(".removeValue").style.display = "none"
-        document.querySelector("*").style.overflow = "hidden"
+        document.querySelector("*").style.overflow = "visible"
     }
 })
 
 // Tentando colocar todos os eventos de fechar pelo botão cancel em um único evento
-document.getElementById("cancel").addEventListener("click", function() {
+document.querySelector(".cancel").addEventListener("click", function() {
 
     if (document.querySelector(".createDream").style.display === "flex") {
         document.querySelector(".createDream").style.display = "none"
-        document.querySelector("*").style.overflow = "hidden"
+        document.querySelector("*").style.overflow = "visible"
     }
 
     if (document.querySelector(".addValue").style.display === "flex") {
         document.querySelector(".addValue").style.display = "none"
-        document.querySelector("*").style.overflow = "hidden"
+        document.querySelector("*").style.overflow = "visible"
     }
 
     if (document.querySelector(".removeValue").style.display === "flex") {
         document.querySelector(".removeValue").style.display = "none"
-        document.querySelector("*").style.overflow = "hidden"
+        document.querySelector("*").style.overflow = "visible"
     }
 })
 
@@ -75,4 +75,11 @@ const removeValueInfo = document.getElementById('removeValueInfo')
 
 closeButton.addEventListener('click', function() {
     removeValueInfo.reset()
+})
+
+// Função temporaria so para a visualização da logica de ligar uma contentIn e desligar contentHide
+const dream = document.querySelector(".dream")
+dream.addEventListener("click", function() {
+    document.querySelector(".dreamContentIn").style = "display: flex"
+    document.querySelector(".dreamContentHide").style = "display: none"
 })
