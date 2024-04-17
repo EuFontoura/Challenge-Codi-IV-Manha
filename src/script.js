@@ -173,6 +173,8 @@ function conteudo_despesas(categoria) {
     divContents.appendChild(divSoma)
 
     categoria.despesas.forEach(despesa => criar_div_despesa(despesa, categoria))
+
+    document.getElementById(formatar_texto(categoria.nome)).focus();
 }
 
 function criar_div_despesa(despesa, categoria) {
@@ -194,19 +196,19 @@ function criar_div_despesa(despesa, categoria) {
 
     switch (despesa.categoria) {
         case 'moradia':
-            colorDiv.style.backgroundColor = 'red'
+            colorDiv.style.backgroundColor = 'rgb(109, 0, 0)'
             break
         case 'alimentacao':
-            colorDiv.style.backgroundColor = 'yellow'
+            colorDiv.style.backgroundColor = 'rgb(148, 148, 1)'
             break
         case 'saude_e_beleza':
-            colorDiv.style.backgroundColor = 'cyan'
+            colorDiv.style.backgroundColor = 'rgb(0, 163, 163)'
             break
         case 'vestuario':
-            colorDiv.style.backgroundColor = 'magenta'
+            colorDiv.style.backgroundColor = 'rgb(153, 0, 153)'
             break
         case 'outros':
-            colorDiv.style.backgroundColor = 'white'
+            colorDiv.style.backgroundColor = 'rgb(92, 92, 92)'
             break
         default:
             break
@@ -373,11 +375,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (botaoCategoria) {
 
             botaoCategoria.click() 
+            botaoCategoria.focus()
 
         } else {
             console.log("Botão de categoria correspondente não encontrado.")
         }
         form.reset()
+        document.querySelector(".form").style.display = "none"
     })
 
     // funções das setas que navegam entre as categorias existentes:
@@ -386,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('left').addEventListener('click', function() {
         //console.log("Botão clicado: left")
- 
+
         currentIndex > 0 ? currentIndex--: currentIndex = categorias.length - 1
         //console.log("Índice atual:", currentIndex)
     

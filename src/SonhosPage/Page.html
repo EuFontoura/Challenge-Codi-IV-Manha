@@ -1,15 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../imagens/Logomarca.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="stylePage.css">
-    <title>CodiFinance-Sonhos</title>
+    <link rel="shortcut icon" href="../imagens/Logomarca.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mina:wght@400;700&display=swap" rel="stylesheet">
+    <title>CodiFinance</title>
 </head>
-<body>
-    <h1>Sou a nova pagina de sonhos!</h1>
 
+<body>
+    <!--Div para colocar a imagem de background-->
+    <div class="background">
+        <img src="../imagens/Background.png" alt="">
+    </div>
+
+    <!-- classe que anda junto com a navbar (estilização)-->
+    <div class="divisor"></div>
+
+    <!-- Navbar: A navbar contem uma imagem ainda a ser definida -->
+    <nav class="navbar">
+        
+        <img src="../imagens/logo-codifinance.png" alt="">
+    </nav>
+
+    <div class="title">
+        <div class="icon">
+            <a href="../index.html"><i class="material-icons">arrow_back</i></a>
+        </div>
+        <h1>Sonhos / Arquivados</h1>
+    </div>
+
+    <div class="contentBase">
+        <div class="contents">
+            <div class="dreamList">
+                <h1>Meus Sonhos</h1>
+                <div class="dream">
+                    <h3 id="dreamName">Reserva</h3>
+                    <i class="material-icons" id = "trash">delete</i>
+                </div>
+
+                <div class="dream">
+                    <h3 id="dreamName">Sonho Criado</h3>
+                    <i class="material-icons" id ="trash">delete</i>
+                </div>
+
+                <button class="addDream" id="addDream">+</button>
+            </div>
+
+        
+
+            <div class="dreamContent">
+                <div class="dreamContentHide">
+                    <span class="material-icons" id = "coin">monetization_on</span>
+                    <span class="material-icons" id ="pig">savings</span>
+                    <h3>Bem vindo a página de sonhos!</h3>
+                    <h2>Clique em algum sonho para ver informações!</h2>
+                    <h2>Crie novos Sonhos através do botão '+'</h2>
+                </div>
+
+                <div class="dreamContentIn">
+                    <div class="dreamContentTitle">
+                        <h2 id ="dreamTitle">Reserva</h2>
+                    </div>
+
+                    <div class="dreamContentDescription">
+                        <p id="dreamDescription">Reserva para emergências</p>
+                    </div>
+            
+                    <div class="values">
+                        <div class="inValue">
+                            <h4>Você deseja:</h4>
+                            <p id="finalValue">R$ 1000,00</p>
+                        </div>
+                
+                        <div class="inValue">
+                            <h4>Você já tem:</h4>
+                            <p id= "haveValue">R$ 25,00</p>
+                        </div>
+                
+                        <div class="inValue">
+                            <h4>Ainda faltam:</h4>
+                            <p id= "diferenceValue">R$ 975,00</p>
+                        </div>
+                    </div>
+
+                    <div class="history">
+                        <h3>Histórico</h3>
+                        <ul>
+                            <li id = "adicionarValor">Adicionou: - R$ 50,00 - 15/04/2024</li>
+                            <li id = "sacarValor">Sacou: - R$ 25,00 - 15/04/2024</li>
+                        </ul>
+                    </div>
+
+                    <div class="dreamContentButtons">
+                        <button class="addButton" id="addButton">Adicionar valor</button>
+                        <button class="removeButton" id="removeButton">Retirar valor</button>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    
+
+    <!--Form para criar um sonho-->
+    <div class="createDream">
+        <div class="createDreamContent">
+            <div class="createDreamTitle">
+                    <h2>Criar sonho</h2>
+                
+                <button class="close">
+                    <div class="icon">
+                        <i class="material-icons">close</i>
+                    </div>
+                </button>
+            </div>
+
+            <form class= "createDreamInfo" id="createDreamInfo" autocomplete="off">
+                
+                <div>
+                    <label for="dreamName">Objetivo:</label>
+                    <input class="input" type="text" placeholder="Ex.: Viagem" id="dreamName" name="dreamName" required>
+                </div>
+
+                <div>
+                    <label for="dreamDate">Data final:</label>
+                    <input class="input" type="date" id="dreamDate" name="dreamDate" required>
+                </div>
+    
+                <div>
+                    <label for="dreamMoney">Valor pretendido:</label>
+                    <input class="input" type="text" placeholder="R$ 0,00" id="dreamMoney" name="dreamMoney" required oninput="formatar_dinheiro(this)">
+                </div>
+
+                <div>
+                    <label for="description">Descrição:</label>
+                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
+                </div>
+    
+                <div class="createDreamButtons">
+                    <input type="reset" class="cancel" value="Cancelar">
+                    <input type="submit" class="submit" value="Salvar"/>
+                </div>
+    
+                </form>
+        </div>
+
+    </div>
+
+    <!--Form para adicionar valor-->
+    <div class="addValue">
+        <div class="addValueContent">
+            <div class="addValueTitle">
+                    <h2>Adicionar valor</h2>
+                
+                <button class="close">
+                    <div class="icon">
+                        <i class="material-icons">close</i>
+                    </div>
+                </button>
+            </div>
+
+            <form class= "addValueInfo" id="addValueInfo" autocomplete="off">
+                
+                <div>
+                    <label for="addValueMoney">Valor adicionado:</label>
+                    <input class="input" type="text" placeholder="R$ 0,00" id="addValueMoney" name="addValueMoney" required oninput="formatar_dinheiro(this)">
+                </div>
+
+                <div>
+                    <label for="addValueDate">Data:</label>
+                    <input class="input" type="date" id="addValueDate" name="addValueDate" required>
+                </div>
+
+                <div>
+                    <label for="description">Descrição:</label>
+                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
+                </div>
+    
+                <div class="addValueButtons">
+                    <input type="reset" class="cancel" value="Cancelar">
+                    <input type="submit" class="submit" value="Adicionar"/>
+                </div>
+    
+                </form>
+        </div>
+
+    </div>
+
+    <!--Form para retirar valor-->
+    <div class="removeValue">
+        <div class="removeValueContent">
+            <div class="removeValueTitle">
+                    <h2>Retirar valor</h2>
+                
+                <button class="close">
+                    <div class="icon">
+                        <i class="material-icons">close</i>
+                    </div>
+                </button>
+            </div>
+
+            <form class= "removeValueInfo" id="removeValueInfo" autocomplete="off">
+                
+                <div>
+                    <label for="removeValueMoney">Valor retirado:</label>
+                    <input class="input" type="text" placeholder="R$ 0,00" id="addValueMoney" name="addValueMoney" required oninput="formatar_dinheiro(this)">
+                </div>
+
+                <div>
+                    <label for="dreamDate">Data:</label>
+                    <input class="input" type="date" id="removeValueDate" name="removeValueDate" required>
+                </div>
+
+                <div>
+                    <label for="description">Descrição:</label>
+                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
+                </div>
+    
+                <div class="removeValueButtons">
+                    <input type="reset" class="cancel" value="Cancelar">
+                    <input type="submit" class="submit" value="Retirar"/>
+                </div>
+                </form>
+        </div>
+    </div>
+
+    <!--Adicionando o ícone animado no canto inferior direito da tela-->
+    <div class="file">
+        <a href="../index.html"><span class="material-icons" id="folder">folder</span></a>
+        <span class="material-icons" id="article">article</span>
+    </div>
 
     <script src = "scriptPage.js"></script>
 </body>
