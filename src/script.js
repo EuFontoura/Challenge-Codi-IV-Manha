@@ -123,7 +123,7 @@ function funcao_todos(categorias) {
     if (categoriaTodosIndex !== -1) {
         categorias[categoriaTodosIndex].despesas = []
         // Esvaziar o array da categoria "Todos" no localStorage
-        localStorage.setItem('categorias', JSON.stringify(categorias));
+        localStorage.setItem('categorias', JSON.stringify(categorias))
 
     } else {
 
@@ -174,7 +174,7 @@ function conteudo_despesas(categoria) {
 
     categoria.despesas.forEach(despesa => criar_div_despesa(despesa, categoria))
 
-    document.getElementById(formatar_texto(categoria.nome)).focus();
+    document.getElementById(formatar_texto(categoria.nome)).focus()
 }
 
 function criar_div_despesa(despesa, categoria) {

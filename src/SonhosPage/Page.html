@@ -35,24 +35,21 @@
         <h1>Sonhos / Arquivados</h1>
     </div>
 
+
+    <!-- início da logica -->
+    
     <div class="contentBase">
         <div class="contents">
             <div class="dreamList">
                 <h1>Meus Sonhos</h1>
-                <div class="dream">
+                
+                <div class="dream" id = 'reserva'>
                     <h3 id="dreamName">Reserva</h3>
                     <i class="material-icons" id = "trash">delete</i>
                 </div>
 
-                <div class="dream">
-                    <h3 id="dreamName">Sonho Criado</h3>
-                    <i class="material-icons" id ="trash">delete</i>
-                </div>
-
                 <button class="addDream" id="addDream">+</button>
             </div>
-
-        
 
             <div class="dreamContent">
                 <div class="dreamContentHide">
@@ -64,49 +61,12 @@
                 </div>
 
                 <div class="dreamContentIn">
-                    <div class="dreamContentTitle">
-                        <h2 id ="dreamTitle">Reserva</h2>
-                    </div>
-
-                    <div class="dreamContentDescription">
-                        <p id="dreamDescription">Reserva para emergências</p>
-                    </div>
-            
-                    <div class="values">
-                        <div class="inValue">
-                            <h4>Você deseja:</h4>
-                            <p id="finalValue">R$ 1000,00</p>
-                        </div>
-                
-                        <div class="inValue">
-                            <h4>Você já tem:</h4>
-                            <p id= "haveValue">R$ 25,00</p>
-                        </div>
-                
-                        <div class="inValue">
-                            <h4>Ainda faltam:</h4>
-                            <p id= "diferenceValue">R$ 975,00</p>
-                        </div>
-                    </div>
-
-                    <div class="history">
-                        <h3>Histórico</h3>
-                        <ul>
-                            <li id = "adicionarValor">Adicionou: - R$ 50,00 - 15/04/2024</li>
-                            <li id = "sacarValor">Sacou: - R$ 25,00 - 15/04/2024</li>
-                        </ul>
-                    </div>
-
-                    <div class="dreamContentButtons">
-                        <button class="addButton" id="addButton">Adicionar valor</button>
-                        <button class="removeButton" id="removeButton">Retirar valor</button>
-                    </div>
+                    
                 </div>
             
             </div>
         </div>
     </div>
-    
 
     <!--Form para criar um sonho-->
     <div class="createDream">
@@ -125,7 +85,7 @@
                 
                 <div>
                     <label for="dreamName">Objetivo:</label>
-                    <input class="input" type="text" placeholder="Ex.: Viagem" id="dreamName" name="dreamName" required>
+                    <input class="input" type="text" name="dreamName" id="dreamName" placeholder="Ex.: Viagem" required>
                 </div>
 
                 <div>
@@ -140,7 +100,7 @@
 
                 <div>
                     <label for="description">Descrição:</label>
-                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
+                    <textarea class="input description" name="description" id="description" placeholder="(Opcional)"></textarea>
                 </div>
     
                 <div class="createDreamButtons">
@@ -180,7 +140,7 @@
 
                 <div>
                     <label for="description">Descrição:</label>
-                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
+                    <textarea class="input description" name="description" id="description" placeholder="(Opcional)"></textarea>
                 </div>
     
                 <div class="addValueButtons">
@@ -210,17 +170,17 @@
                 
                 <div>
                     <label for="removeValueMoney">Valor retirado:</label>
-                    <input class="input" type="text" placeholder="R$ 0,00" id="addValueMoney" name="addValueMoney" required oninput="formatar_dinheiro(this)">
+                    <input class="input" type="text" placeholder="R$ 0,00" id="removeValueMoney" name="removeValueMoney" required oninput="formatar_dinheiro(this)">
                 </div>
 
                 <div>
-                    <label for="dreamDate">Data:</label>
+                    <label for="removeValueDate">Data:</label>
                     <input class="input" type="date" id="removeValueDate" name="removeValueDate" required>
                 </div>
 
                 <div>
                     <label for="description">Descrição:</label>
-                    <textarea class="input description" name="description" placeholder="(Opcional)"></textarea>
+                    <textarea class="input description" name="description" id="description" placeholder="(Opcional)"></textarea>
                 </div>
     
                 <div class="removeValueButtons">
