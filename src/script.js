@@ -157,7 +157,7 @@ function conteudo_despesas(categoria) {
     const h2 = document.createElement('h2')
     h2.textContent = "Soma dos Valores:"
 
-    const totalDespesas = categoria.somar_despesas().toFixed(2)
+    const totalDespesas = "R$ " + categoria.somar_despesas().toFixed(2)
     
     const pTotal = document.createElement('p')
     pTotal.id = "total"
@@ -276,7 +276,7 @@ function botao_delete(despesa, categoria) {
 
         const totalDespesasAtualizado = categoria.somar_despesas().toFixed(2)
         const pTotal = document.getElementById("total")
-        if (pTotal) pTotal.textContent = totalDespesasAtualizado
+        if (pTotal) pTotal.textContent = "R$ " + totalDespesasAtualizado
 
         deleteButton.parentNode.parentNode.remove()
     })
