@@ -3,7 +3,7 @@
 const chave = 'lista_de_sonhos'
 
 class Sonho {
-    constructor(objetivo, data_sonho, moeda_sonho, descricao_sonho, diferenca_valor, valor_sonho, chave_objeto) {
+    constructor(objetivo, data_sonho, moeda_sonho, descricao_sonho, valor_sonho, chave_objeto) {
 
         this.objetivo = objetivo
         this.data_sonho = data_sonho
@@ -109,6 +109,7 @@ function formatar_data (dataObjeto) {
 // ===== INTERAÇÃO COM LOCAL STORAGE
 
 function enviar_storage(objeto, chaveObjeto) {
+
     var listaObjetos = JSON.parse(localStorage.getItem(chaveObjeto)) || []
     
     listaObjetos.push(objeto)
@@ -123,8 +124,8 @@ function buscar_chave_storage(chave) {
     const listaJSON = localStorage.getItem(chave)
 
     if (listaJSON) {
-        const listaDeObjetos = JSON.parse(listaJSON)
-        return listaDeObjetos
+        const listaObjetos = JSON.parse(listaJSON)
+        return listaObjetos
 
     } else {
         return []
@@ -138,8 +139,8 @@ function buscar_objeto_storage(chave, chaveObjeto) {
 
     if (listaJSON) {
 
-        const listaDeObjetos = JSON.parse(listaJSON)
-        const objetoEncontrado = listaDeObjetos.find(objeto => objeto.chave_objeto === chaveObjeto)
+        const listaObjetos = JSON.parse(listaJSON)
+        const objetoEncontrado = listaObjetos.find(objeto => objeto.chave_objeto === chaveObjeto)
         return objetoEncontrado || null
 
     } else {
@@ -157,7 +158,8 @@ function apaga_objeto_storage(chave, chaveObjeto) {
         
         if (index !== -1) {
             listaObjetos.splice(index, 1)
-            localStorage.setItem(chave, JSON.stringify(listaDeObjetos))
+            localStorage.setItem(chave, JSON.stringify(listaObjetos))
+            localStorage.removeItem(chaveObjeto)
         }
     }
 }
@@ -293,7 +295,7 @@ function preencher_div_botoes() {
                     preencher_div_sonho('reserva')
 
                 } else {
-                    console.log('Aguardando novo Objeto')
+                    return
                 }
             }
 
@@ -304,11 +306,12 @@ function preencher_div_botoes() {
                     dreamSelected = dreamElement.id
                     preencher_div_sonho(dreamSelected)
                 } else {
-                    console.log('Aguardando novo Objeto')
+                    return
                 }
                 
             }
         })
+
         preencher_div_botoes.hasEventListener = true
     }
 }
@@ -408,7 +411,7 @@ function preencher_div_sonho(dreamSelected) {
         })
 
     } else {
-        console.log('Objeto não encontrado no Local Storage.')
+        //console.log('Objeto não encontrado no Local Storage.')
         return null
     }
 }
@@ -457,25 +460,49 @@ function filtro_valores_formulario(formSelected, valoresFormulario) {
             atualizar_historico(dreamSelected)
             
         } else {
-            console.log('Aguardando novo Objeto')
+            return
         }
+
         preencher_div_sonho(dreamSelected)
     }
 }
 
 // ====== FORMULÁRIOS
 
+// Objeto que mapeia os formulários aos seus campos obrigatórios
+
+
 function valores_formulario(event, formSelected) {
     event.preventDefault()
+
+    const camposObrigatorios = {
+        '.createDream': ['dreamName', 'dreamDate', 'dreamMoney'],
+        '.addValue': ['addValueMoney', 'addValueDate'],
+        '.removeValue': ['removeValuaMoney', 'removeValueDate']
+    }
     
     const formulario = document.querySelector(formSelected)
     const valores = []
     
+    const Obrigatorios = camposObrigatorios[formSelected]
+
+    var camposVazios = false
+
     formulario.querySelectorAll('input, textarea').forEach((campo) => {
         if (campo.name !== '') {
             valores.push(campo.value)
+            
+            // Verifica se o campo é obrigatório e está vazio
+            if (Obrigatorios && Obrigatorios.includes(campo.name) && campo.value.trim() === '') {
+                camposVazios = true
+            }
         }
     })
+
+    if (camposVazios) {
+        window.alert("Preencha todos os campos obrigatórios!")
+        return []
+    }
 
     return valores
 }
@@ -506,7 +533,7 @@ function definir_formSelected(formSelected) {
 }
 
 function formulario_ativo(formSelected) {
-    console.log('Formulário ativo:', formSelected)
+    //console.log('Formulário ativo:', formSelected)
 
     const { formInfoDiv } = definir_formSelected(formSelected)
     const formInfo = document.getElementById(formInfoDiv)
@@ -523,9 +550,12 @@ function formulario_ativo(formSelected) {
             if (confirmacao) {
                 //console.log("Ação confirmada")
 
+                // Chamada para a função valores_formulario()
                 const valoresFormulario = valores_formulario(event, formSelected)
-                filtro_valores_formulario(formSelected, valoresFormulario)
-                formInfo.reset()
+                if (valoresFormulario.length > 0) {
+                    filtro_valores_formulario(formSelected, valoresFormulario)
+                    formInfo.reset()
+                }
 
             } else {
                 //console.log("Ação cancelada")
@@ -538,6 +568,7 @@ function formulario_ativo(formSelected) {
     if (!closeButton.hasEventListener) {
         closeButton.addEventListener('click', function () {
             //console.log('close clicado')
+            formInfo.reset()
             fechar_formulario(formSelected)
         })
         closeButton.hasEventListener = true
@@ -547,11 +578,13 @@ function formulario_ativo(formSelected) {
         cancelButton.addEventListener('click', function () {
             window.alert("Aviso: Saindo sem salvar os dados.")
             //console.log('cancel clicado')
+            formInfo.reset()
             fechar_formulario(formSelected)
         })
         cancelButton.hasEventListener = true
     }
 }
+
 
 // ====== Evento de carregamento do DOM
 
