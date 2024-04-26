@@ -137,7 +137,7 @@ body{overflow-x: hidden;}
 
 .dream h3{
     color:#383838;
-    padding-right: 57%;
+    padding-right: 30%;
 }
 
 .dream i{
@@ -215,15 +215,7 @@ body{overflow-x: hidden;}
     flex-direction: column;
 }
 
-.dreamContentReserve{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-}
-
-.dreamContentReserve .values{
+.dreamContentIn .reserveValues{
     padding-top: 30px;
     display:flex;
     justify-content:center;
@@ -232,7 +224,7 @@ body{overflow-x: hidden;}
     padding-right: 80px;
 }
 
-.dreamContentReserve .values .inValue{
+.dreamContentIn .reserveValues .inValue{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -246,13 +238,13 @@ body{overflow-x: hidden;}
     text-overflow: ellipsis;
 } 
 
-.dreamContentReserve .values .inValue h4{
+.dreamContentIn .reserveValues .inValue h4{
     color: white;
     font-size: 17px;
     font-weight: 400;
 }
 
-.dreamContentReserve .values .inValue p{
+.dreamContentIn .reserveValues .inValue p{
     color: white;
     font-size: 28px;
     font-weight: 400;

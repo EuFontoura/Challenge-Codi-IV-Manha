@@ -218,27 +218,14 @@ function abrir_div_botao(divBotoes) {
     contentDiv.insertBefore(elementoHTML, addDreamButton)
 }
 
-function abrir_div_reserva(divSonho) {
-    //console.log('abrir_div_reserva')
-
+function abrir_div(divSonho, classe) {
     const dreamContentDiv = document.querySelector('.dreamContent')
     dreamContentDiv.innerHTML = ''
 
     const elementoHTML = hierarquia_html(divSonho)
     dreamContentDiv.appendChild(elementoHTML)
 
-}
-
-function abrir_div_sonho(divSonho) {
-    //console.log('abrir_div_sonho')
-
-    const dreamContentDiv = document.querySelector('.dreamContent')
-    dreamContentDiv.innerHTML = ''
-
-    const elementoHTML = hierarquia_html(divSonho)
-    dreamContentDiv.appendChild(elementoHTML)
-    
-    document.querySelector(".dreamContentIn").style = "display: flex"
+    document.querySelector("." + classe).style = "display: flex"
 }
 
 function abrir_lista_historico(historico) {
@@ -292,7 +279,7 @@ function preencher_div_botoes() {
                     dreamSelected = dreamElement.id
                     apaga_objeto_storage(chave, dreamSelected)
                     preencher_div_botoes()
-                    preencher_div_sonho('reserva')
+                    preencher_div_sonho('inicial')
 
                 } else {
                     return
@@ -324,7 +311,7 @@ function preencher_div_sonho(dreamSelected) {
     const listaSaques = []
     const listaDepositos = []
 
-    if (dreamSelected === 'reserva') {
+    if (dreamSelected === 'inicial') {
         const divSonho = ['div', { 'class': 'dreamContentHide' }, [
                 ['span', { 'class': 'material-icons', 'id': 'coin' }, 'monetization_on'],
                 ['span', { 'class': 'material-icons', 'id': 'pig' }, 'savings'],
@@ -334,9 +321,71 @@ function preencher_div_sonho(dreamSelected) {
             ]
         ]
 
-        abrir_div_reserva(divSonho)
+        abrir_div(divSonho, 'dreamContentHide')
     }
-    
+
+    if (dreamSelected === 'reserva') {
+        const listaHistorico = abrir_lista_historico(historico)
+
+        //console.log(listaHistorico)
+
+        historico.forEach(item => {
+            const quantia = dinheiro_float(item.moeda_historico)
+
+            if (item.operacao === 'Saque') {
+                listaSaques.push(quantia)
+            } else if (item.operacao === 'Depósito') {
+                listaDepositos.push(quantia)
+            }
+        })
+        
+        const somaDepositos = listaDepositos.reduce((acc, curr) => acc + curr, 0)
+        const somaSaques = listaSaques.reduce((acc, curr) => acc + curr, 0)
+
+        var somaTotalHistorico = (somaDepositos - somaSaques)
+        valorAcumulado = float_dinheiro(somaTotalHistorico)
+
+        const divSonho = ['div', { 'class': 'dreamContentIn' , 'id':'reserva' }, [
+            ['div', { 'class': 'reserveContentTitle' }, [
+                ['h2', { 'id': 'reserveTitle' }, 'Reserva']
+            ]],
+            ['div', { 'class': 'reserveValues' }, [
+                ['div', { 'class': 'inValue' }, [
+                    ['h4', {}, 'Total Reservado'],
+                    ['p', { 'id': 'totalReserve' }, valorAcumulado]
+                ]]
+            ]],
+
+            // Histórico
+            ['div', { 'class': 'history' }, [
+                ['h3', {}, 'Histórico'],
+                ['ul', {}, listaHistorico]
+            ]],
+            
+            // Botões
+            ['div', { 'class': 'dreamContentButtons' }, [
+                ['button', { 'class': 'addButton', 'id': 'addButton' }, 'Adicionar Valor'],
+                ['button', { 'class': 'removeButton', 'id': 'removeButton' }, 'Retirar Valor']
+            ]]
+        ]]
+
+        abrir_div(divSonho, 'dreamContentIn')
+
+        const addButton = document.querySelector('.addButton')
+        addButton.addEventListener('click', function() {
+            formSelected = '.addValue'
+            formulario_ativo(formSelected)
+            abrir_formulario(formSelected)
+        })
+
+        const removeButton = document.querySelector('.removeButton')
+        removeButton.addEventListener('click', function() {
+            formSelected = '.removeValue'
+            formulario_ativo(formSelected)
+            abrir_formulario(formSelected)
+        })
+    }
+
     if (sonho && sonho.chave_objeto === dreamSelected) {
         const listaHistorico = abrir_lista_historico(historico)
         
@@ -394,7 +443,7 @@ function preencher_div_sonho(dreamSelected) {
             ]]
         ]]
         
-        abrir_div_sonho(divSonho)
+        abrir_div(divSonho, 'dreamContentIn')
 
         const addButton = document.querySelector('.addButton')
         addButton.addEventListener('click', function() {
@@ -415,6 +464,7 @@ function preencher_div_sonho(dreamSelected) {
         return null
     }
 }
+
 
 function atualizar_historico(dreamSelected) {
     const historico = buscar_chave_storage(dreamSelected)
@@ -449,7 +499,7 @@ function filtro_valores_formulario(formSelected, valoresFormulario) {
     if (formSelected === '.createDream') {
         preencher_sonho(valoresFormulario)
         preencher_div_botoes()
-        preencher_div_sonho('reserva')
+        preencher_div_sonho('inicial')
 
     } else if (formSelected === '.addValue' || formSelected === '.removeValue') {
         const dreamElement = document.querySelector('.dreamContentIn')
@@ -460,6 +510,7 @@ function filtro_valores_formulario(formSelected, valoresFormulario) {
             atualizar_historico(dreamSelected)
             
         } else {
+
             return
         }
 
