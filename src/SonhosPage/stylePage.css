@@ -137,6 +137,7 @@ body{overflow-x: hidden;}
 
 .dream h3{
     color:#383838;
+    padding-right: 57%;
 }
 
 .dream i{
@@ -198,7 +199,7 @@ body{overflow-x: hidden;}
 }
 
 .dreamContentHide{
-    display: flex;
+    display: none;
     height: 100%;
     width: 100%;
     flex-direction: column;
@@ -212,6 +213,49 @@ body{overflow-x: hidden;}
     width: 100%;
     align-items: center;
     flex-direction: column;
+}
+
+.dreamContentReserve{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dreamContentReserve .values{
+    padding-top: 30px;
+    display:flex;
+    justify-content:center;
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.dreamContentReserve .values .inValue{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 50%;
+    background-color: #383838;
+    border-radius: 9px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 
+
+.dreamContentReserve .values .inValue h4{
+    color: white;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.dreamContentReserve .values .inValue p{
+    color: white;
+    font-size: 28px;
+    font-weight: 400;
 }
 
 #pig{
@@ -359,8 +403,12 @@ body{overflow-x: hidden;}
         margin-left: 0;
     }
 
+    .dream h3{
+        padding-right: 80%;
+    }
+
     .dreamContent {
-        width: 80%;
+        width: 85%;
         margin-bottom: 20px;
     }
 
@@ -681,6 +729,7 @@ body{overflow-x: hidden;}
     right: 4%;
     background-color: none;
     transition: all 0.2s;
+    z-index: 99;
 }
 
 .file #folder {
