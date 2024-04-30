@@ -123,7 +123,7 @@ function funcao_todos(categorias) {
     if (categoriaTodosIndex !== -1) {
         categorias[categoriaTodosIndex].despesas = []
         // Esvaziar o array da categoria "Todos" no localStorage
-        localStorage.setItem('categorias', JSON.stringify(categorias));
+        localStorage.setItem('categorias', JSON.stringify(categorias))
 
     } else {
 
@@ -157,7 +157,7 @@ function conteudo_despesas(categoria) {
     const h2 = document.createElement('h2')
     h2.textContent = "Soma dos Valores:"
 
-    const totalDespesas = categoria.somar_despesas().toFixed(2)
+    const totalDespesas = "R$ " + categoria.somar_despesas().toFixed(2)
     
     const pTotal = document.createElement('p')
     pTotal.id = "total"
@@ -174,7 +174,7 @@ function conteudo_despesas(categoria) {
 
     categoria.despesas.forEach(despesa => criar_div_despesa(despesa, categoria))
 
-    document.getElementById(formatar_texto(categoria.nome)).focus();
+    document.getElementById(formatar_texto(categoria.nome)).focus()
 }
 
 function criar_div_despesa(despesa, categoria) {
@@ -276,7 +276,7 @@ function botao_delete(despesa, categoria) {
 
         const totalDespesasAtualizado = categoria.somar_despesas().toFixed(2)
         const pTotal = document.getElementById("total")
-        if (pTotal) pTotal.textContent = totalDespesasAtualizado
+        if (pTotal) pTotal.textContent = "R$ " + totalDespesasAtualizado
 
         deleteButton.parentNode.parentNode.remove()
     })
@@ -319,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.getElementById("register-button").addEventListener("click", function() {
         document.querySelector(".form").style = "display: flex"
+        document.querySelector(".overlay").style =  "display: flex"
         document.querySelector("*").style.overflow = "hidden"
     })
 
@@ -326,13 +327,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeButton = document.getElementById('close')
 
     document.querySelector(".close").addEventListener("click", function() {
-        document.querySelector(".form").style.display = "none"
         document.querySelector("*").style.overflow = "visible"
+
+        document.querySelector(".formContent").style.animation = "arrasteSaida 1s"
+        document.querySelector(".overlay").style.animation = "arrasteSaidaOverlay 1s"
+
+        setTimeout(() => {
+            document.querySelector(".form").style.display = "none"
+            document.querySelector(".formContent").style.animation = "arraste 0.7s"
+            document.querySelector(".overlay").style = "display: none"
+            document.querySelector(".overlay").style.animation = "none"
+        }, 500)
     })
 
     document.getElementById("cancel").addEventListener("click", function() {
-        document.querySelector(".form").style.display = "none"
+
         document.querySelector("*").style.overflow = "visible"
+
+        document.querySelector(".formContent").style.animation = "arrasteSaida 1s"
+        document.querySelector(".overlay").style.animation = "arrasteSaidaOverlay 1s"
+
+        setTimeout(() => {
+            document.querySelector(".form").style.display = "none"
+            document.querySelector(".formContent").style.animation = "arraste 0.7s"
+            document.querySelector(".overlay").style = "display: none"
+            document.querySelector(".overlay").style.animation = "none"
+        }, 500)
     })
 
     closeButton.addEventListener('click', function() {
@@ -381,7 +401,15 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Botão de categoria correspondente não encontrado.")
         }
         form.reset()
-        document.querySelector(".form").style.display = "none"
+        document.querySelector(".formContent").style.animation = "arrasteSaida 1s"
+        document.querySelector(".overlay").style.animation = "arrasteSaidaOverlay 1s"
+
+        setTimeout(() => {
+            document.querySelector(".form").style.display = "none"
+            document.querySelector(".formContent").style.animation = "arraste 0.7s"
+            document.querySelector(".overlay").style = "display: none"
+            document.querySelector(".overlay").style.animation = "none"
+        }, 500)
     })
 
     // funções das setas que navegam entre as categorias existentes:

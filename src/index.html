@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="imagens/Logomarca.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mina:wght@400;700&display=swap" rel="stylesheet">
     <title>CodiFinance</title>
 </head>
 
 <body>
+    <!--Div referente ao overlay do forms-->
+    <div class="overlay"></div>
 
     <!--Div para colocar a imagem de background-->
     <div class="background">
         <img src="imagens/Background.png" alt="">
     </div>
 
-    <!-- classe que anda junto com a navbar (estilização)-->
+    <!-- Classe que anda junto com a navbar (estilização)-->
     <div class="divisor"></div>
 
-    <!-- Navbar: A navbar contem uma imagem ainda a ser definida e um botao de registrar valor que abrirá um forms para a adição de novos gastos -->
+    <!-- Navbar: A navbar contém a logo do site e um botão de registrar valor que abrirá um forms para a adição de novos gastos -->
     <nav class="navbar">
         <img src="imagens/logo-codifinance.png" alt="">
         <a href="#"><button class="register-button" id="register-button">Registrar Valor</button></a>
@@ -62,6 +62,7 @@
                 
             </div>
 
+            <!-- Classe dos botões de navegação da Div contents-->
             <div class="leftRight">
                 <button class="left" id="left">
                     <div class="icon">
@@ -79,8 +80,7 @@
 
     </div>
 
-    <!-- um form para adicionar novos gastos -->
-
+    <!-- Form para adicionar novos gastos -->
     <div class="form">
         <div class="formContent">
             <div class="formTitle">
@@ -91,13 +91,11 @@
                         <i class="material-icons">close</i>
                     </div>
                 </button>
-    
             </div>
 
             <p>Digite o valor e selecione a categoria adequada</p>
 
             <form class= "formInfo" id="formInfo" autocomplete="off">
-                
                 <div>
                     <label for="money">Valor:</label>
                     <input class="input" type="text" placeholder="R$ 0,00" id="money" name="money" required oninput="formatar_dinheiro(this)">
@@ -120,10 +118,10 @@
                     </select>
                 </div>
             
-                <div> <!--Adicionar no JS-->
+                <div>
                     <label for="subcategory">Subcategoria:</label>
                     <input class="input" type="text" name="subcategory" id="subcategory" placeholder="Ex.: Aluguel, Mercado, etc." required> 
-                </div> <!--Adicionar no JS-->
+                </div>
 
                 <div>
                     <label for="description">Descrição:</label>
@@ -135,13 +133,11 @@
                     <input type="submit" value="Inserir valor" id="submit"/>
                 </div>
     
-                </form>
-        </div>
-
-        
+            </form>
+        </div> 
     </div>
 
-    <!--Adicionando o porquinho no canto inferior direito da tela-->
+    <!--Porquinho no canto inferior direito da tela-->
     <div class="goals">
         <a href="SonhosPage/Page.html"><span class="material-icons" id="savings">savings</span></a>
         <span class="material-icons" id="coin">monetization_on</span>
@@ -150,4 +146,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

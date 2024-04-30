@@ -5,7 +5,20 @@
     font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* body{overflow: hidden;} */
+/*ESTILIZAÇÃO DE CLASSES*/
+/*Estilização do overlay forms*/
+.overlay{
+    background-color: #34343467;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
 
 .background {
     height: 100%;
@@ -15,7 +28,7 @@
 }
 
 .navbar {
-    z-index: 3;                                                                                                  /*MUDEI */
+    z-index: 3;
     position :absolute;
     background-color: transparent;
     width: 100%;
@@ -25,13 +38,13 @@
     justify-content: space-between;
 }
 
-.divisor{
-    position: absolute;
-    width: 100%; /* Largura do quadrado (igual à largura da navbar) */
-    height: 90px;                                                                                                  /*MUDEI */
-    background-color: #E8E8E8; /* Cor de fundo do quadrado */
-    z-index: 3;                                                                                                   /*MUDEI */
-    opacity: 52%; /* Opacidade do quadrado (opcional) */
+.divisor{  /*Divisor responsavel por aumentar o campo de visão da navbar */
+    position: absolute; 
+    width: 100%;
+    height: 90px;
+    background-color: #E8E8E8;
+    z-index: 3;
+    opacity: 52%;
     Border-bottom: 3px solid #3A9564;
     margin-bottom: 10px;
     box-shadow: 5px 5px 10px black;
@@ -64,6 +77,124 @@
     cursor: pointer;
 }
 
+
+/*Comeco da estilização do conteudo do arquivo*/
+.capsule{
+    width: 940px;
+    height: 100%;
+}
+
+.container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0%, 30%);
+}
+
+.divContents {
+    background-color: #343434;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 10px;
+    box-shadow: 10px 13px 5px rgb(153, 153, 153);
+    overflow-y: auto;
+    border-top:10px solid #343434;
+}
+
+/*Estilizando titulo do arquivo*/
+.Gastos {
+    background-color:#3A9564;
+    height: 40px;
+    display: flex;
+    flex-direction:initial;
+    width: 170px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    transform: translate(0, 40px);
+}
+
+.Gastos:hover{
+    cursor: pointer;
+    transition: all 250ms;
+    background-color: #48b47a;
+}
+
+.Gastos i{
+    margin: 7px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.Gastos h1{
+    font-weight: 500;
+    margin-top: 3px;
+    color: white;
+    font-size: 26px;
+}
+
+/*Quando iniciar a pagina essa div ira aparecer*/
+.contentHide{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentHide h2{
+    color: #757575;
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+.contentHide p{
+    color: #757575;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/*Estilizando dentro da div contents referente ao conteudo principal*/
+.outsum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 9%;
+    position:sticky;
+    top: 0;
+    background-color: #343434;
+    padding-bottom: 10px;
+}
+
+.sum{
+    width: 97%;
+    background-color: #3A9564;
+    display:flex;
+    justify-content: space-between;
+    border-radius: 9px;
+}
+
+.sum h2{
+    color: white;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 1px;
+    font-weight: 500;
+}
+
+.sum p{
+    color: white;
+    font-size: 18px;
+    margin-right: 10px;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
 .outContent{
     display: flex;
     justify-content: center;
@@ -77,6 +208,23 @@
     display:flex;
     border-radius: 9px;
     border: 2px solid #3A9564;
+    animation: contentApresentation 0.5s;
+}
+
+.content button{
+    cursor:pointer;
+    background: none;
+    border:none;
+    border-left: 2px solid #3A9564;
+    color: #3A9564;
+    font-size: 1px;
+    font-weight: bold;
+}
+
+.content button:hover{
+    background-color: #3A9564;
+    color: #343434;
+    transition: all 250ms;
 }
 
 .color{
@@ -141,161 +289,21 @@
     font-weight: 500;
 }
 
+
+/*Estilizando parte dos botoes do arquivo*/
 .divButtons {
     background-color: transparent;
     width: 100%;
 }
 
-.divContents {
-    background-color: #343434;
-    height: 430px;
-    display: flex;
-    flex-direction: column;
-    border-top-right-radius: 10px;
-    box-shadow: 10px 13px 5px rgb(153, 153, 153);
-    overflow-y: auto;
-    border-top:10px solid #343434;
-}
-
-.contentHide{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.contentHide h2{
-    color: #757575;
-    font-size: 30px;
-    font-weight: 700;
-    padding-bottom: 10px;
-}
-
-.contentHide p{
-    color: #757575;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-#folder{
-    z-index: 2;
-    color: #757575;
-    font-size: 80px;
-}
-
-#paper{
-    z-index: 1;
-    color: #75757577;
-    font-size: 50px;
-    transform: translate(0, 35px);
-}
-
-
-.divContents::-webkit-scrollbar {
-    width: 10px;
-    margin: 100px;
-}
-
-.divContents::-webkit-scrollbar-thumb {
-    background-color: #3A9564;
-    border-radius: 10px;
-    border: 4px solid #343434;
-}
-
-.capsule{
-    /* background-color: yellow; */
-    width: 940px;
-    height: 100%;
-}
-.container {
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(0%, 30%);
-}
-
-.outsum {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 9%;
-    position:sticky;
-    top: 0;
-    background-color: #343434;
-    padding-bottom: 10px;
-}
-
-.sum{
-    width: 97%;
-    background-color: #3A9564;
-    display:flex;
-    justify-content: space-between;
-    border-radius: 9px;
-}
-
-.sum h2{
-    color: white;
-    font-size: 18px;
-    margin-left: 10px;
-    margin-top: 1px;
-    font-weight: 500;
-}
-
-.sum p{
-    color: white;
-    font-size: 18px;
-    margin-right: 10px;
-    margin-top: 2px;
-    font-weight: 500;
-}
-
-.content.show {
-    display: block;
-}
-
-.leftRight {
-    border-top: 2px solid #343434;
-    background-color: #343434;
-    display: flex;
-    justify-content: space-between;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    box-shadow: 10px 10px 5px rgb(153, 153, 153);
-}
-
-.Gastos {
-    background-color:#3A9564;
+.backBtn{
+    z-index: -1;
+    position:relative;
     height: 40px;
-    display: flex;
-    flex-direction:initial;
-    width: 170px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    transform: translate(0, 40px);                                                                                                  /*MUDEI */
-}
-
-.Gastos:hover{
-    cursor: pointer;
-    transition: all 250ms;
-    background-color: #48b47a;
-}
-
-.Gastos i{
-    margin: 7px;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.Gastos h1{
-    font-weight: 500;
-    margin-top: 3px;
-    color: white;
-    font-size: 26px;
+    width: 70%;
+    background-color: #E8E8E8;
+    border: 2px solid #B9B9B9;
+    transform: translate(0, 40px);
 }
 
 .tabBtn{
@@ -335,90 +343,26 @@
     border-top-left-radius: 9px;
 }
 
-#todos{
-    width: 10%;
-    border-right: 10px solid black;
-    border-radius: 2px solid #B9B9B9;
+.divContents::-webkit-scrollbar {
+    width: 10px;
+    margin: 100px;
 }
 
-#todos:hover{
-    border-right: 10px solid #3A9564;
-} 
-
-#todos:focus{
-    border-right: 10px solid #3A9564;
+.divContents::-webkit-scrollbar-thumb {
+    background-color: #3A9564;
+    border-radius: 10px;
+    border: 4px solid #343434;
 }
 
-#moradia{
-    width: 10%;
-    border-right: 10px solid rgb(109, 0, 0);
-    border-left: none;
+.leftRight {
+    border-top: 2px solid #343434;
+    background-color: #343434;
+    display: flex;
+    justify-content: space-between;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 10px 10px 5px rgb(153, 153, 153);
 }
-
-#moradia:hover{
-    border-right: 10px solid red;
-}
-
-#moradia:focus{
-    border-right: 10px solid red;
-}
-
-#alimentacao{
-    width: 13%;
-    border-right: 10px solid rgb(148, 148, 1);
-    border-left: none;
-}
-
-#alimentacao:hover{
-    border-right: 10px solid yellow;
-}
-
-#alimentacao:focus{
-    border-right: 10px solid yellow;
-}
-
-#saude_e_beleza{
-    width: 16%;
-    border-right: 10px solid rgb(0, 163, 163);
-    border-left: none;
-}
-
-#saude_e_beleza:hover{
-    border-right: 10px solid cyan;
-}
-
-#saude_e_beleza:focus{
-    border-right: 10px solid cyan;
-}
-
-#vestuario{
-    width: 12%;
-    border-right: 10px solid rgb(153, 0, 153);
-    border-left: none;
-}
-
-#vestuario:hover{
-    border-right: 10px solid magenta;
-}
-
-#vestuario:focus{
-    border-right: 10px solid magenta;
-}
-
-#outros{
-    width: 10%;
-    border-right: 10px solid rgb(92, 92, 92);
-    border-left: none;
-}
-
-#outros:hover{
-    border-right: 10px solid white;
-}
-
-#outros:focus{
-    border-right: 10px solid white;
-}
-
 
 .leftRight button{
     background: none;
@@ -433,28 +377,9 @@
     cursor: pointer;
 }
 
-.backBtn{
-    z-index: -1;
-    position:relative;                                                                                                  /*MUDEI */
-    height: 40px;
-    width: 70%;                                                                                                  /*MUDEI */
-    background-color: #E8E8E8;
-    border: 2px solid #B9B9B9;
-    transform: translate(0, 40px);                                                                                                  /*MUDEI */
-}
-
-.listaDespesas{
-    padding-left: 50px;
-}
-
-.itemListaDespesa{
-    color: white
-}
 
 /* Estilizando o form */
 .form {
-    background:#8887877c;
-    backdrop-filter: blur(5px);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -463,18 +388,18 @@
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 3;
+    z-index: 100;
 }
 
 .formContent {
     display: inline-block;
     height: fit-content;
     width: fit-content;
+    animation: arraste 0.5s;
     background: white;
     padding: 10px;
     border-radius: 10px;
     position: relative;
-    transition: 1s;
 }
 
 .formTitle {
@@ -544,10 +469,6 @@
     background-color: E8E8E8;
 }
 
-#description {
-    height: 5em;
-}
-
 .formButtons {
     display: flex;
     justify-content: center;
@@ -559,6 +480,131 @@
     border-radius: 7px;
     font-size: 15px;
     width: 50%;
+}
+
+
+/* Estilizando o porquinho */
+.goals {
+    display: flex;
+    position: fixed;
+    bottom: 4.5%;
+    right: 4%;
+    background-color: none;
+    transition: all 0.2s;
+}
+
+.goals a{
+    text-decoration: none;
+}
+
+/*ESTILIZAÇÃO POR ID*/
+/*Especificando estilização de cada botão*/
+#todos{
+    width: 10%;
+    border-right: 10px solid black;
+    border-radius: 2px solid #B9B9B9;
+}
+
+#todos:hover{
+    border-right: 10px solid #3A9564;
+} 
+
+#todos:focus{
+    border-right: 10px solid #3A9564;
+}
+
+#moradia{
+    width: 10%;
+    border-right: 10px solid rgb(109, 0, 0);
+    border-left: none;
+    animation: tabBtnApresentation 0.5s;
+}
+
+#moradia:hover{
+    border-right: 10px solid red;
+}
+
+#moradia:focus{
+    border-right: 10px solid red;
+}
+
+#alimentacao{
+    width: 13%;
+    border-right: 10px solid rgb(148, 148, 1);
+    border-left: none;
+    animation: tabBtnApresentation 0.7s;
+}
+
+#alimentacao:hover{
+    border-right: 10px solid yellow;
+}
+
+#alimentacao:focus{
+    border-right: 10px solid yellow;
+}
+
+#saude_e_beleza{
+    width: 16%;
+    border-right: 10px solid rgb(0, 163, 163);
+    border-left: none;
+    animation: tabBtnApresentation 0.9s;
+}
+
+#saude_e_beleza:hover{
+    border-right: 10px solid cyan;
+}
+
+#saude_e_beleza:focus{
+    border-right: 10px solid cyan;
+}
+
+#vestuario{
+    width: 12%;
+    border-right: 10px solid rgb(153, 0, 153);
+    border-left: none;
+    animation: tabBtnApresentation 1.1s;
+}
+
+#vestuario:hover{
+    border-right: 10px solid magenta;
+}
+
+#vestuario:focus{
+    border-right: 10px solid magenta;
+}
+
+#outros{
+    width: 10%;
+    border-right: 10px solid rgb(92, 92, 92);
+    border-left: none;
+    animation: tabBtnApresentation 1.3s;
+}
+
+#outros:hover{
+    border-right: 10px solid white;
+}
+
+#outros:focus{
+    border-right: 10px solid white;
+}
+
+/*Estilização do simbolo referente ao contentHide*/
+#folder{
+    z-index: 2;
+    color: #757575;
+    font-size: 80px;
+}
+
+#paper{
+    z-index: 1;
+    color: #75757577;
+    font-size: 50px;
+    transform: translate(0, 35px);
+}
+
+/*Estilizando alguns parametros do forms*/
+#description {/*Regulando tamanho do bloco descrição dp forms*/
+    height: 5em;
 }
 
 #cancel {
@@ -585,16 +631,7 @@
     transition: 0.5s;
 }
 
-/* Estilizando o porquinho */
-.goals {
-    display: flex;
-    position: fixed;
-    bottom: 4.5%;
-    right: 4%;
-    background-color: none;
-    transition: all 0.2s;
-}
-
+/*Estilizando o porquinho*/
 .goals #savings {
     color: #343434;
     font-size: 60px;
@@ -605,10 +642,6 @@
     cursor: pointer;
     transition: all 0.3s;
     -webkit-text-stroke: darkgreen 1px;
-}
-
-.goals a{
-    text-decoration: none;
 }
 
 .goals #coin {
@@ -632,19 +665,55 @@
     opacity: 1;
 }
 
-
-.content button{
-    cursor:pointer;
-    background: none;
-    border:none;
-    border-left: 2px solid #3A9564;
-    color: #3A9564;
-    font-size: 1px;
-    font-weight: bold;
+/*ANIMAÇÕES*/
+@keyframes arraste {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.content button:hover{
-    background-color: #3A9564;
-    color: #343434;
-    transition: all 250ms;
+@keyframes arrasteSaida{
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-90%);
+        opacity: 0;
+    }
 }
+
+@keyframes arrasteSaidaOverlay{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes contentApresentation{
+    from {
+        transform: translateX(-25%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes tabBtnApresentation{
+    from {
+        transform: translateX(-25%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+

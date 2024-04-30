@@ -5,7 +5,20 @@
     font-family: 'Poppins', Arial, sans-serif;
 }
 
-body{overflow-x: hidden;} 
+/*ESTILIZAÇÃO DE CLASSES*/
+/*Estilização do overlay forms*/
+.overlay{
+    background-color: #3434343d;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+}
 
 .background {
     height: 100%;
@@ -26,17 +39,16 @@ body{overflow-x: hidden;}
     align-items: center;
 }
 
-.divisor{
+.divisor{  /*Divisor responsavel por aumentar o campo de visão da navbar */
     position: absolute;
-    width: 100%; /* Largura do quadrado (igual à largura da navbar) */
+    width: 100%;
     height: 90px;                                                                       
-    background-color: #E8E8E8; /* Cor de fundo do quadrado */
+    background-color: #E8E8E8;
     z-index: 3;                                                                                        
-    opacity: 52%; /* Opacidade do quadrado (opcional) */
+    opacity: 52%;
     border-bottom: 3px solid #3A9564;
     margin-bottom: 10px;
     box-shadow: 5px 5px 10px black;
-
 }
 
 .navbar img {
@@ -45,6 +57,8 @@ body{overflow-x: hidden;}
     height: 50px;
 }
 
+
+/*Estilização do titulo da pagina*/
 .title{
     display: flex;
     padding-top: 120px;
@@ -71,6 +85,8 @@ body{overflow-x: hidden;}
     font-weight: 700;
 }
 
+
+/*Inicio da estilização do conteudo principal da página*/
 .contents{
     display: flex;
     height: 600px;
@@ -80,6 +96,7 @@ body{overflow-x: hidden;}
     padding-top: 20px;
 }
 
+/*Estilização da lista de sonhos*/
 .dreamList{
     margin-left: 30px;
     border-radius: 9px;
@@ -94,10 +111,8 @@ body{overflow-x: hidden;}
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    margin-right: 30px;
-    
+    margin-right: 30px; 
 }
-
 
 .dreamList::-webkit-scrollbar {
     width: 10px;
@@ -118,6 +133,31 @@ body{overflow-x: hidden;}
     text-align: center;
 }
 
+.dreamList button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3A9564;
+    color: #D9D9D9;
+    border: none;
+    border-radius: 100%;
+    margin: 5px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    font-size: 45px;
+    font-weight: 500;
+    box-shadow: 0px 3px 10px rgb(179, 178, 178);
+    animation: dreamlistApresentation 0.5s;
+}
+
+.dreamList button:hover{
+    background-color: #40c980;
+    transform: translate(0px, -3px);
+    transition: 0.5s;
+}
+
+/*Estilização de cada sonho*/
 .dream{
     display: flex;
     justify-content: space-between;
@@ -127,6 +167,9 @@ body{overflow-x: hidden;}
     padding:5px;
     box-shadow: 0px 3px 10px rgb(179, 178, 178);
     margin-bottom: 20px;
+    animation: dreamlistApresentation 0.5s;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
 }
 
 .dream:hover{
@@ -149,31 +192,8 @@ body{overflow-x: hidden;}
     transition: 0.5s;
 }
 
-.dreamList button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #3A9564;
-    color: #D9D9D9;
-    border: none;
-    border-radius: 100%;
-    margin: 5px;
-    cursor: pointer;
-    height: 40px;
-    width: 40px;
-    font-size: 45px;
-    font-weight: 500;
-    box-shadow: 0px 3px 10px rgb(179, 178, 178);
-}
-
-.dreamList button:hover{
-    background-color: #40c980;
-    transform: translate(0px, -3px);
-    transition: 0.5s;
-}
 
 /*Estilizando o conteúdo do sonho*/
-
 .contentBase{
     width: 100%;
     display: flex;
@@ -194,46 +214,6 @@ body{overflow-x: hidden;}
     box-shadow: 5px 5px 10px rgb(146, 146, 146);
     margin-right: 30px;
     margin-bottom: 20px;
-
-}
-
-.dreamContentHide{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.dreamContentIn{
-    display: none;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-}
-
-#pig{
-    color: #64646434;
-    font-size: 100px;
-}
-
-#coin{
-    color: #64646434;
-    font-size: 50px;
-}
-
-.dreamContentHide h2{
-    font-size: 15px;
-    color: #64646434;
-}
-
-.dreamContentHide h3{
-    padding-top: 15px;
-    color: #64646434;
-    font-size: 30px;
-    padding-bottom: 10px;
 }
 
 .dreamContentTitle{
@@ -249,6 +229,118 @@ body{overflow-x: hidden;}
 }
 
 .dreamContentTitle h2{
+    color: white;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.dreamContentButtons{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    width: 95%;
+}
+
+.dreamContentButtons button{
+    background-color: #3A9564;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 20px;
+    width: 45%;
+    height: 35px;
+}
+
+.dreamContentButtons button:hover{
+    background-color: #44ad75;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+/*Estilização da div referente a reserva*/
+.reserveContentTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 410px;
+    height: 35px;
+    background-image: linear-gradient(90deg, #B9B9B9, #888787);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.dreamContentIn .reserveValues{
+    padding-top: 30px;
+    display:flex;
+    justify-content:center;
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.dreamContentIn .reserveValues .inValue{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 50%;
+    background-color: #383838;
+    border-radius: 9px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 
+
+.dreamContentIn .reserveValues .inValue h4{
+    color: white;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.dreamContentIn .reserveValues .inValue p{
+    color: white;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+
+/*Estilização da div referente ao inicio da pagina (quando nao tem nada selecionado)*/
+.dreamContentHide{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dreamContentHide h2{
+    font-size: 15px;
+    color: #64646434;
+}
+
+.dreamContentHide h3{
+    padding-top: 15px;
+    color: #64646434;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+
+/*Estilização da div referente aos sonhos*/
+.dreamContentIn{
+    display: none;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    animation: divApresentation 1s;
+}
+
+.dreamContentIn h2{
     color: white;
     font-size: 30px;
     font-weight: 400;
@@ -314,80 +406,9 @@ body{overflow-x: hidden;}
     margin-bottom: 8px;
 }
 
-#adicionarValor{
-    background-color: rgba(58, 169, 100, 0.28);
-}
-
-#sacarValor{
-    background-color: rgba(169, 58, 58, 0.28);
-}
-
-.dreamContentButtons{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    width: 95%;
-}
-
-.dreamContentButtons button{
-    background-color: #3A9564;
-    color: white;
-    border: none;
-    border-radius: 7px;
-    font-size: 20px;
-    width: 45%;
-    height: 35px;
-}
-
-.dreamContentButtons button:hover{
-    background-color: #44ad75;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-@media (max-width: 1120px) {
-    .contents {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-    }
-
-    .dreamList {
-        width: 80%;
-        margin-bottom: 20px;
-        margin-left: 0;
-    }
-
-    .dreamContent {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-
-    .dreamContentTitle {
-        width: 80%;
-    }
-
-    .inValue {
-        width: 100px;
-    }
-
-    .inValue h4 {
-        font-size: 10px;
-    }
-
-    .inValue p {
-        font-size: 20px;
-    }
-
-
-}
-
 
 /* Estilizando o form de Criar sonho*/
 .createDream {
-    background:#8887877c;
-    backdrop-filter: blur(5px);
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -398,6 +419,7 @@ body{overflow-x: hidden;}
     align-items: center;
     z-index: 3;
     object-fit: cover;
+    z-index: 100;
 }
 
 .createDreamContent {
@@ -407,6 +429,7 @@ body{overflow-x: hidden;}
     background: white;
     padding: 10px;
     border-radius: 10px;
+    animation: arraste 0.5s;
     position: relative;
     transition: 1s;
 }
@@ -462,10 +485,9 @@ body{overflow-x: hidden;}
     width: 50%;
 }
 
+
 /* Estilizando o form de Adicionar valor*/
 .addValue {
-    background:#8887877c;
-    backdrop-filter: blur(5px);
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -476,6 +498,7 @@ body{overflow-x: hidden;}
     align-items: center;
     z-index: 3;
     object-fit: cover;
+    z-index: 100;
 }
 
 .addValueContent {
@@ -486,7 +509,9 @@ body{overflow-x: hidden;}
     padding: 10px;
     border-radius: 10px;
     position: relative;
+    animation: arraste 0.5s;
     transition: 1s;
+    z-index: 100;
 }
 
 .addValueTitle {
@@ -540,10 +565,9 @@ body{overflow-x: hidden;}
     width: 50%;
 }
 
+
 /* Estilizando o form de Retirar valor*/
 .removeValue {
-    background:#8887877c;
-    backdrop-filter: blur(5px);
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -554,6 +578,7 @@ body{overflow-x: hidden;}
     align-items: center;
     z-index: 3;
     object-fit: cover;
+    z-index: 100;
 }
 
 .removeValueContent {
@@ -564,6 +589,7 @@ body{overflow-x: hidden;}
     padding: 10px;
     border-radius: 10px;
     position: relative;
+    animation: arraste 0.5s;
     transition: 1s;
 }
 
@@ -667,11 +693,6 @@ body{overflow-x: hidden;}
     transition: 0.5s;
 }
 
-@media (max-width: 918px) {
-    .createDreamContent, .addValueContent, .removeValueContent {
-        width: fit-content;
-    }
-}
 
 /* Estilizando o icone de arquivo */
 .file {
@@ -681,8 +702,36 @@ body{overflow-x: hidden;}
     right: 4%;
     background-color: none;
     transition: all 0.2s;
+    z-index: 99;
 }
 
+.file a{
+    text-decoration: none;
+}
+
+
+/*ESTILIZAÇÃO DOS IDs*/
+/* Estilizando o icone de moeda do contentHide*/
+#pig{
+    color: #64646434;
+    font-size: 100px;
+}
+
+#coin{
+    color: #64646434;
+    font-size: 50px;
+}
+
+/*Especificando cores historico*/
+#adicionarValor{
+    background-color: rgba(58, 169, 100, 0.28);
+}
+
+#sacarValor{
+    background-color: rgba(169, 58, 58, 0.28);
+}
+
+/*Estilização do icone do arquivo estatico*/
 .file #folder {
     color: #343434;
     font-size: 60px;
@@ -692,10 +741,6 @@ body{overflow-x: hidden;}
     color: rgb(22, 22, 22);
     cursor: pointer;
     transition: all 0.3s;
-}
-
-.file a{
-    text-decoration: none;
 }
 
 #article {
@@ -715,4 +760,105 @@ body{overflow-x: hidden;}
     -webkit-text-stroke: 0.5px darkgreen;
     top: -18%;
     opacity: 1;
+}
+
+
+/*REDIMENCIONANDO PAGINA (RESPONSIVIDADE)*/
+@media (max-width: 1120px) {
+    .contents {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .dreamList {
+        width: 80%;
+        margin-bottom: 20px;
+        margin-left: 0;
+    }
+
+    .dream h3{
+        padding-right: 80%;
+    }
+
+    .dreamContent {
+        width: 85%;
+        margin-bottom: 20px;
+    }
+
+    .dreamContentTitle {
+        width: 80%;
+    }
+
+    .inValue {
+        width: 100px;
+    }
+
+    .inValue h4 {
+        font-size: 10px;
+    }
+
+    .inValue p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 918px) {
+    .createDreamContent, .addValueContent, .removeValueContent {
+        width: fit-content;
+    }
+}
+
+
+/*ANIMAÇÕES*/
+@keyframes divApresentation {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes dreamlistApresentation {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes arraste {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes arrasteSaida{
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-90%);
+        opacity: 0;
+    }
+}
+
+@keyframes arrasteSaidaOverlay{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
