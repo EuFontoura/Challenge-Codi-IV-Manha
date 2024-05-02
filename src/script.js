@@ -204,11 +204,14 @@ function criar_div_despesa(despesa, categoria) {
         case 'saude_e_beleza':
             colorDiv.style.backgroundColor = 'rgb(0, 163, 163)'
             break
-        case 'vestuario':
+        case 'cartao':
             colorDiv.style.backgroundColor = 'rgb(153, 0, 153)'
             break
         case 'outros':
             colorDiv.style.backgroundColor = 'rgb(92, 92, 92)'
+            break
+        case 'transporte':
+            colorDiv.style.backgroundColor = 'rgb(139, 74, 0)'
             break
         default:
             break
@@ -293,7 +296,7 @@ function formatar_dinheiro(input) {
     input.value = (num / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 }
 
-const nomesCategorias = ["Todos", "Moradia", "Alimentação", "Saúde e Beleza", "Vestuário", "Outros"]
+const nomesCategorias = ["Todos", "Moradia", "Alimentação", "Saúde e Beleza", "Cartão", "Transporte", "Outros"]
 const categorias = criar_categoria(nomesCategorias)
 
 

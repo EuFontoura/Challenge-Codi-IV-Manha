@@ -97,6 +97,11 @@
 
             <form class= "formInfo" id="formInfo" autocomplete="off">
                 <div>
+                    <label for="subcategory">Titulo:</label>
+                    <input class="input" type="text" name="subcategory" id="subcategory" placeholder="Ex.: Aluguel, Mercado, etc." required> 
+                </div>
+
+                <div>
                     <label for="money">Valor:</label>
                     <input class="input" type="text" placeholder="R$ 0,00" id="money" name="money" required oninput="formatar_dinheiro(this)">
                 </div>
@@ -113,14 +118,10 @@
                         <option value="moradia">Moradia</option>
                         <option value="alimentacao">Alimentação</option>
                         <option value="saude_e_beleza">Saúde e Beleza</option>
-                        <option value="vestuario">Vestuário</option>
+                        <option value="cartao">Cartão</option>
+                        <option value="transporte">Transporte</option>
                         <option value="outros">Outros</option>
                     </select>
-                </div>
-            
-                <div>
-                    <label for="subcategory">Subcategoria:</label>
-                    <input class="input" type="text" name="subcategory" id="subcategory" placeholder="Ex.: Aluguel, Mercado, etc." required> 
                 </div>
 
                 <div>
